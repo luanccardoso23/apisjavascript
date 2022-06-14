@@ -64,7 +64,37 @@ async function filtrarDados(idPersonagem){
     try {
         let resultado = await fetch(url)
         const dados = await resultado.json()
-        console.log(dados)
+        console.log(resultado)
+
+       
+        
+        const linha = document.createElement("tr")
+        const tdNome = document.createElement("td")
+        const tdPeso = document.createElement("td")
+        const tdCorOlho = document.createElement("td")
+
+        //CRIANDO O CONTEÚDO DAS TDS(COLUNAS)
+
+        tdNome.textContent = dados.name
+        tdPeso.textContent = dados.mass
+        tdCorOlho.textContent = dados.eye_color
+
+        while(resultado.status != 200){
+            btnFiltrar.setAttribute("disabled", "disabled")
+            btnFiltrar.textContent = "Carregando..."
+
+        }
+        btnFiltrar.removeAttribute("disabled")
+        btnFiltrar.textContent = "Filtrar"
+        
+
+        // ADICIONANDO OS ELEMENTOS EM SUAS RESPECTIVAS TAGS MÃE
+
+        linha.appendChild(tdNome)
+        linha.appendChild(tdPeso)
+        linha.appendChild(tdCorOlho)
+
+        tabela.appendChild(linha)
 
       
             
