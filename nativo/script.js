@@ -42,8 +42,7 @@ async function carregarDados(){
             linha.appendChild(tdPeso)
             linha.appendChild(tdCorOlho)
 
-            tabela.appendChild(linha)
-            
+          
 
         }
 
@@ -94,7 +93,13 @@ async function filtrarDados(idPersonagem){
         linha.appendChild(tdPeso)
         linha.appendChild(tdCorOlho)
 
+        
+        if(tabela.children.length > 0){
+            tabela.removeChild(tabela.firstElementChild)
+
+        }
         tabela.appendChild(linha)
+        
 
       
             
